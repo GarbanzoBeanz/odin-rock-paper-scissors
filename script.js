@@ -29,43 +29,43 @@ function playRound(humanChoice, computerChoice) {
   if(humanChoice === 'rock') {
     switch (computerChoice) {
       case 'Rock':
-        console.log('We both chose rock, we tie!');
+        console.log('We both chose rock, we tie this round!');
         break;
       case 'Paper':
-        console.log('Paper beats rock, you lose!');
+        console.log('Paper beats rock, you lose this round!');
         ++computerScore;
         break;
       case 'Scissors':
-        console.log('Rock beats scissors, you win!');
+        console.log('Rock beats scissors, you win this round!');
         ++humanScore;
         break;
     }
   } else if(humanChoice === 'paper') {
     switch (computerChoice) {
       case 'Rock':
-        console.log('Paper beats rock, you win!');
+        console.log('Paper beats rock, you win this round!');
         ++humanScore;
         break;
       case 'Paper':
-        console.log('We both chose paper, we tie!');
+        console.log('We both chose paper, we tie this round!');
         break;
       case 'Scissors':
-        console.log('Scissors beats paper, you lose!');
+        console.log('Scissors beats paper, you lose this round!');
         ++computerScore;
         break;
     }
   } else if(humanChoice === 'scissors') {
     switch (computerChoice) {
       case 'Rock':
-        console.log('Rock beats scissors, you lose!');
+        console.log('Rock beats scissors, you lose this round!');
         ++computerScore;
         break;
       case 'Paper':
-        console.log('Scissors beats paper, you win!');
+        console.log('Scissors beats paper, you win this round!');
         ++humanScore;
         break;
       case 'Scissors':
-        console.log('We both chose scissors, we tie!');
+        console.log('We both chose scissors, we tie this round!');
         break;
     }
   } else {
