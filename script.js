@@ -1,18 +1,16 @@
 'use strict'
 
-let randomNumber = getRandomInt();
 let humanScore = 0;
 let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 function getRandomInt(max) {
-  return Math.floor((Math.random() * 3) + 1)
-};
+  return Math.floor((Math.random() * 3) + 1);
+}
 
 function getComputerChoice() {
+  const randomNumber = getRandomInt();
   if(randomNumber == 1) {
-    return "Rock"
+    return "Rock";
   } else if(randomNumber == 2) {
     return "Paper";
   } else if (randomNumber == 3) {
@@ -20,15 +18,15 @@ function getComputerChoice() {
   } else {
     return 'Something\'s Broken';
   }
-};
+}
 
 function getHumanChoice() {
   let answer = prompt("Rock, Paper or Scissors?").toLowerCase();
   return answer;
-};
+}
 
 function playRound(humanChoice, computerChoice) {
-  if(humanChoice == 'rock') {
+  if(humanChoice === 'rock') {
     switch (computerChoice) {
       case 'Rock':
         console.log('We both chose rock, we tie!');
@@ -39,16 +37,14 @@ function playRound(humanChoice, computerChoice) {
         break;
       case 'Scissors':
         console.log('Rock beats scissors, you win!');
-        ++humanScore
+        ++humanScore;
         break;
-      default:
-        console.log('Something went wrong!!');
-    };
-  } else if(humanChoice == 'paper') {
+    }
+  } else if(humanChoice === 'paper') {
     switch (computerChoice) {
       case 'Rock':
         console.log('Paper beats rock, you win!');
-        ++humanScore
+        ++humanScore;
         break;
       case 'Paper':
         console.log('We both chose paper, we tie!');
@@ -57,26 +53,39 @@ function playRound(humanChoice, computerChoice) {
         console.log('Scissors beats paper, you lose!');
         ++computerScore;
         break;
-      default:
-        console.log('Something went wrong!!');
-    };
-  } else if(humanChoice == 'scissors') {
-      switch (computerChoice) {
-        case 'Rock':
-          console.log('Rock beats scissors, you lose!');
-          ++computerScore;
-          break;
-        case 'Paper':
-          console.log('Scissors beats paper, you win!');
-          ++humanScore
-          break;
-        case 'Scissors':
-          console.log('We both chose Scissors, we tie!');
-          break;
-        default:
-          console.log('Something went wrong!!');
-      };
-    } else {
-      console.log('something is broken');
     }
-};
+  } else if(humanChoice === 'scissors') {
+    switch (computerChoice) {
+      case 'Rock':
+        console.log('Rock beats scissors, you lose!');
+        ++computerScore;
+        break;
+      case 'Paper':
+        console.log('Scissors beats paper, you win!');
+        ++humanScore;
+        break;
+      case 'Scissors':
+        console.log('We both chose scissors, we tie!');
+        break;
+    }
+  } else {
+    console.log('Invalid input. Please type rock, paper, or scissors.');
+  }
+}
+
+function playGame() {
+  while (humanScore < 3 && computerScore < 3) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log(`Human: ${humanScore} | Computer: ${computerScore}`);
+  }
+
+  if (humanScore === 3) {
+    console.log('🎉 You won the game!');
+  } else {
+    console.log('💻 You lost the game!');
+  }
+}
+
+playGame();
