@@ -18,3 +18,8 @@ function getComputerChoice() {
     return 'Something\'s Broken';
   }
 };
+
+function getHumanChoice() {
+  let answer = prompt("Rock, Paper or Scissors?").toLowerCase();
+  return answer;
+};
