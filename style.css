@@ -7,13 +7,12 @@
 
 /* ========== BASE ========== */
 html, body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   background-color: #333;
   color: #f9f9f9;
   line-height: 1.5;
   min-height: 100vh;
 }
-
 /* ========== LAYOUT HELPERS ========== */
 .container {
   max-width: 800px;
@@ -30,7 +29,42 @@ html, body {
 .text-center {
   text-align: center;
 }
+
 /* ========== COMPONENTS ========== */
 .hide {
   display: none !important;
+}
+
+.start-container {
+  height: 100vh;
+  background-color: #222;
+  color: #f0f0f0;
+  padding: 2rem;
+}
+.lilita {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#157811;
+}
+.start-content h1{
+  font-size: 3rem;
+  margin: 2rem;
+  letter-spacing: 1px;;
+}
+
+.start-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #157811;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.start-btn:hover {
+  background-color: #0b3f09;
 }
