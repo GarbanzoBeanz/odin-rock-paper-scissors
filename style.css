@@ -157,3 +157,32 @@ html, body {
 .footer a:hover {
   color: #157811;
 }
+
+.end-container {
+  height: 100vh;
+  background-color: #222;
+  color: #f0f0f0;
+  padding: 2rem;
+}
+
+.end-result h1{
+  font-size: 5rem;
+  margin: 2rem;
+  letter-spacing: 1px;;
+}
+
+#replay-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #157811;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#replay-btn:hover {
+  background-color: #0b3f09;
+}
