@@ -12,7 +12,7 @@
 
 <body>
   <!-- Start Screen -->
-  <div class="start-container flex-center">
+  <div class="start-container flex-center hide">
     <div class="start-content text-center">
       <h1 class="lilita">ROCK PAPER SCISSORS</h1>
       <button class="start-btn">Start Game</button>
@@ -20,9 +20,9 @@
   </div>
 
   <!-- Main Game Interface -->
-  <main class="main-container hide">
-    <header class="header">
-      <h1 class="game-title">ROCK PAPER SCISSORS</h1>
+  <main class="main-container">
+    <header class="header flex-center">
+      <h1 class="game-title lilita text-center">ROCK PAPER SCISSORS</h1>
     </header>
 
     <section class="game-container">
@@ -37,11 +37,11 @@
       </div>
 
       <!-- Choices -->
-      <div class="choice-container">
+      <div class="choice-container flex-center">
         <div class="choice-title">
-          <p>Choose your weapon!</p>
+          <p>CHOOSE YOUR WEAPON!</p>
         </div>
-        <ul class="choice-list">
+        <ul class="choice-list flex-center">
           <li><button data-choice="rock">Rock</button></li>
           <li><button data-choice="paper">Paper</button></li>
           <li><button data-choice="scissors">Scissors</button></li>
@@ -50,13 +50,12 @@
 
       <!-- Round Result -->
       <div class="result-container">
-        <div id="round-result">
-          <div id="user-result">
-            <p>You chose:</p>
-          </div>
-          <div id="computer-result">
-            <p>Computer chose:</p>
-          </div>
+        <div id="user-result">
+          <p>Player Chose:</p>
+        </div>
+
+        <div id="computer-result">
+          <p>Computer Chose:</p>
         </div>
       </div>
     </section>
