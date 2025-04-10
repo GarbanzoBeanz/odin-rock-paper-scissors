@@ -18,6 +18,6 @@ A minimalistic browser-based Rock Paper Scissors game where the user plays again
 
 ## Links
 
-- Live Version: https://github.io/GarbanzoBeanzodin/-rock-paper-scissors
+- Live Version: https://garbanzobeanz.github.io/odin-rock-paper-scissors/
 - Github: https://github.com/GarbanzoBeanz
 - Linked-In: www.linkedin.com/in/mohammad-moghaddassi-44a437114
