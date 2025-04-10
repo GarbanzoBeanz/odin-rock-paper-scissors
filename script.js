@@ -26,20 +26,10 @@ const startGameBtn = document.addEventListener('click', () => {
 
 // --- GAME FUNCTIONS --- //
 function getRandomInt(max) {
-  return Math.floor((Math.random() * 3) + 1);
+  return Math.floor(Math.random() * max);
 }
 
-
-function getComputerChoice() {
-  const randomNumber = getRandomInt();
-  if(randomNumber == 1) {
-    return "rock";
-  } else if(randomNumber == 2) {
-    return "paper";
-  } else if (randomNumber == 3) {
-    return "scissors";
-  } else {
-    return 'Somthing\'s Wrong!';
-  }
-}
-
+const getComputerChoice = () => {
+  const choices = ['rock', 'paper', 'scissors'];
+  return choices[getRandomInt(choices.length)];
+};
