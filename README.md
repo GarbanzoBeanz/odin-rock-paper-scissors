@@ -1,4 +1,4 @@
-# Rock Paper Scissors (DOM Version)
+# Rock Paper Scissors
 
 A minimalistic browser-based Rock Paper Scissors game where the user plays against a computer. Built as part of The Odin Project curriculum.
 
@@ -15,12 +15,6 @@ A minimalistic browser-based Rock Paper Scissors game where the user plays again
 - CSS
 - JavaScript
 
-## What I Learned
-
-- JavaScript event handling
-- DOM manipulation
-- Game state logic and conditional rendering
-- UI updates based on user interaction
 
 ## Links
 
