@@ -154,10 +154,14 @@ html, body {
   margin: 10px;
 }
 
+#round-result li{
+  font-size: 0.9rem;
+}
+
 .footer {
   text-align: center;
   padding: 1.5rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: #bbb;
   background-color: #222;
   opacity: 0.8;

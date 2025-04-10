@@ -115,10 +115,34 @@ const updateUI = () => {
 
 const checkWinner = () => {
   if (computerScore > 2 || userScore > 2) {
-    const winnerText = userScore > computerScore ? 'YOU WIN!' : 'YOU LOSE!';
-    endResultText.textContent = winnerText;
-    
+    endResultText.textContent = '';
+
+    const heading = document.createElement('span');
+    heading.textContent = userScore > computerScore ? 'YOU WIN!' : 'YOU LOSE!';
+
+    const scoreLine = document.createElement('p');
+    scoreLine.textContent = userScore > computerScore
+      ? `${userScore} - ${computerScore}`
+      : `${computerScore} - ${userScore}`;
+
+    endResultText.appendChild(heading);
+    endResultText.appendChild(scoreLine);
+  
     mainScreen.classList.add('hide');
     endScreen.classList.remove('hide')
   };
 };
+
+replayBtn.addEventListener('click', () => {
+  userScore = 0;
+  computerScore = 0;
+  round = 1;
+
+  battleLog.innerHTML = '';
+  endResultText.textContent = 'RESULT';
+
+  updateUI();
+
+  endScreen.classList.add('hide');
+  mainScreen.classList.remove('hide');
+});
