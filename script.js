@@ -37,12 +37,7 @@ const startGameBtn = document.addEventListener('click', () => {
   mainScreen.classList.remove('hide');
 });
 
-/* for whatever button the user pressed
-add an event listener for clicks that
-stores the player choice
-stores the computer choice
-plays a round using player and computer choice
-updates the score
+/*
 checks if the game is over */
 
 choiceButtons.forEach(button => {
@@ -50,6 +45,7 @@ choiceButtons.forEach(button => {
     const userChoice = button.dataset.choice;
     const computerChoice = getComputerChoice();
     playRound(userChoice, computerChoice);
+    updateUI();
   })
 })
 
@@ -97,7 +93,7 @@ const playRound = (userChoice, computerChoice) => {
 
       const attack = randomFromArray(attackVerbs[userChoice]);
       const defense = randomFromArray(defenseVerbs[computerChoice]);
-      
+
       const list = document.createElement('li')
       list.textContent = `ROUND ${round}: The Computer’s ${computerChoice} ${attack} `
         + `the Player’s ${userChoice} ${defense}.The Computer wins.`;
@@ -109,4 +105,9 @@ const playRound = (userChoice, computerChoice) => {
   } else {
     console.log('playRound is broken');
   }
+};
+
+const updateUI = () => {
+  userScoreEl.textContent = `Player Score: ${userScore}`;
+  computerScoreEl.textContent = `Computer Score: ${computerScore}`;
 };
