@@ -16,18 +16,16 @@ const battleLog = document.querySelector('#round-result');
 // --- INITIALIZER --- //
 let userScore = 0;
 let computerScore = 0;
+let round = 1;
 userScoreEl.textContent = `Player Score: ${userScore}`;
 computerScoreEl.textContent = `Computer Score: ${computerScore}`;
 
 // --- DECLERATIONS --- //
-let round = 1;
-
 const attackVerbs = {
   rock: ['smashed', 'crushed', 'broke'],
   paper: ['wrapped', 'smothered', 'covered'],
   scissors: ['cut', 'sliced', 'shredded']
 };
-
 const defenseVerbs = {
   rock: ['defense', 'counter', 'stance'],
   paper: ['strategy', 'attack', 'plan'],
@@ -39,7 +37,25 @@ const startGameBtn = document.addEventListener('click', () => {
   mainScreen.classList.remove('hide');
 });
 
+/* for whatever button the user pressed
+add an event listener for clicks that
+stores the player choice
+stores the computer choice
+plays a round using player and computer choice
+updates the score
+checks if the game is over */
+
+choiceButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const userChoice = button.dataset.choice;
+    const computerChoice = getComputerChoice();
+    playRound(userChoice, computerChoice);
+  })
+})
+
 // --- GAME FUNCTIONS --- //
+const randomFromArray = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -49,67 +65,47 @@ const getComputerChoice = () => {
   return choices[getRandomInt(choices.length)];
 };
 
-const userChoiceIndex = (userChoice) => {
-  switch (userChoice) {
-    case 'rock' : 0
-    break;
-
-    case 'paper': 1
-    break;
-
-    case 'scissors': 2
-    break;
-
-    default:
-      (console.log("userChoiceIndex is broken!"))
-  }
-}
-
-const computerChoiceIndex = (computerChoice) => {
-  switch (computerChoice) {
-    case 'rock' : 0
-    break;
-
-    case 'paper': 1
-    break;
-
-    case 'scissors': 2
-    break;
-
-    default:
-      (console.log("computerChoiceIndex is broken!"))
-  }
-}
-
 const playRound = (userChoice, computerChoice) => {
   if(userChoice === computerChoice) {
-    battleLog.appendChild(`<li>ROUND ${round}: Both fighters stood `
-      + `firm with ${userChoice}. No one wins this round!</li>`)
+    
+    const list = document.createElement('li');
+    list.textContent = `ROUND ${round}: Both fighters stood `
+      + `firm with ${userChoice}. No one wins this round!`;
 
+    battleLog.appendChild(list);
     round++
 
   } else if((userChoice === 'rock' && computerChoice === 'scissors')
     || (userChoice === 'paper' && computerChoice === 'rock')
     || (userChoice === 'scissors' && computerChoice === 'paper')){
-    battleLog.appendChild(`<li>ROUND ${round}: `
-      + `The Player\’s ${userChoice} `
-      + `${attackVerbs[userChoiceIndex(userChoice)]} `
-      + `the Computer’s ${computerChoice} `
-      + `${defenseVerbs[computerChoiceIndex(computerChoice)]}.`
-      + `The Player wins!</li>`)
-    
-      round++
-      userScore++
+
+      const attack = randomFromArray(attackVerbs[userChoice]);
+      const defense = randomFromArray(defenseVerbs[computerChoice]);
+
+      const list = document.createElement('li')
+      list.textContent = `ROUND ${round}: The Player’s ${userChoice} ${attack} `
+       + `the Computer’s ${computerChoice} ${defense}. The Player wins!`;   
+      battleLog.appendChild(list);
+
+      round++;
+      userScore++;
+
 
   } else if((computerChoice === 'rock' && userChoice === 'scissors')
-  || (computerChoice === 'paper' && userChoice === 'rock')
-  || (computerChoice === 'scissors' && userChoice === 'paper')) {
-    battleLog.appendChild(`<li>ROUND ${round}: `
-      + `The Computer\’s ${computerChoice} `
-      + `${attackVerbs[computerChoiceIndex(computerChoiceChoice)]} `
-      + `the Players’s ${userChoice} `
-      + `${defenseVerbs[userChoiceIndex(userChoice)]}.`
-      + `The Player wins.</li>`)
+    || (computerChoice === 'paper' && userChoice === 'rock')
+    || (computerChoice === 'scissors' && userChoice === 'paper')) {
+
+      const attack = randomFromArray(attackVerbs[userChoice]);
+      const defense = randomFromArray(defenseVerbs[computerChoice]);
+      
+      const list = document.createElement('li')
+      list.textContent = `ROUND ${round}: The Computer’s ${computerChoice} ${attack} `
+        + `the Player’s ${userChoice} ${defense}.The Computer wins.`;
+      battleLog.appendChild(list);
+
+      round++;
+      computerScore++;
+
   } else {
     console.log('playRound is broken');
   }
