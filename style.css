@@ -35,7 +35,7 @@ html, body {
   height: 100vh;
   background-color: #222;
   color: #f0f0f0;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 .lilita {
   font-family: "Lilita One", sans-serif;
@@ -45,7 +45,7 @@ html, body {
 }
 .start-content h1{
   font-size: 3rem;
-  margin: 2rem;
+  margin: 1.5rem;
   letter-spacing: 1px;;
 }
 
@@ -74,19 +74,24 @@ html, body {
 }
 
 .header {
-  padding-top: 2rem;
-  padding-bottom:2rem;
+  padding-top: 1.5rem;
+  padding-bottom:1.5rem;
   background-color: #222;
   border-bottom: #0b3f09 solid 1px;
   font-size: 1.5rem;
 }
 
 .score-container,
-.choice-container, 
-.result-container {
+.choice-container {
   display:flex;
-  padding: 2rem;
-  margin: 2rem;
+  padding: 1.5rem;
+  margin: 1.5rem;
+}
+
+result-container {
+  display:flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .score-container {
@@ -101,7 +106,7 @@ html, body {
 
 .choice-container {
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   text-align: center;
   border-bottom:#157811 solid 1px;
   padding-bottom: 4rem;
@@ -109,7 +114,7 @@ html, body {
 
 .choice-title p {
   font-family: "Lilita One", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.5px;
   padding-bottom: 4rem;
@@ -124,7 +129,7 @@ html, body {
 
 .choice-list button {
   width: 150px;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -150,7 +155,7 @@ html, body {
 
 .footer {
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: 0.875rem;
   color: #bbb;
   background-color: #222;
@@ -171,12 +176,12 @@ html, body {
   height: 100vh;
   background-color: #222;
   color: #f0f0f0;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .end-result h1{
   font-size: 5rem;
-  margin: 2rem;
+  margin: 1.5rem;
   letter-spacing: 1px;;
 }
 
