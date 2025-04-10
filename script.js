@@ -3,6 +3,7 @@
 // --- SCREEN SELECTORS --- //
 const startScreen = document.querySelector('.start-container');
 const mainScreen = document.querySelector('.main-container');
+const endScreen = document.querySelector('.end-container');
 
 
 // --- COMPONENT SELECTORS --- //
@@ -32,13 +33,10 @@ const defenseVerbs = {
   scissors: ['offense', 'guard', 'move']
 };
 // --- EVENT LISTENERS --- //
-const startGameBtn = document.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
   startScreen.classList.add('hide');
   mainScreen.classList.remove('hide');
 });
-
-/*
-checks if the game is over */
 
 choiceButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -46,6 +44,7 @@ choiceButtons.forEach(button => {
     const computerChoice = getComputerChoice();
     playRound(userChoice, computerChoice);
     updateUI();
+    checkWinner();
   })
 })
 
@@ -110,4 +109,11 @@ const playRound = (userChoice, computerChoice) => {
 const updateUI = () => {
   userScoreEl.textContent = `Player Score: ${userScore}`;
   computerScoreEl.textContent = `Computer Score: ${computerScore}`;
+};
+
+const checkWinner = () => {
+  if (computerScore > 2 || userScore > 2) {
+    mainScreen.classList.add('hide');
+    endScreen.classList.remove('hide')
+  };
 };
