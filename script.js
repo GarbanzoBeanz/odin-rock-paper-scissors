@@ -9,10 +9,12 @@ const endScreen = document.querySelector('.end-container');
 // --- COMPONENT SELECTORS --- //
 const startBtn = document.querySelector('.start-btn');
 const choiceButtons = document.querySelectorAll('[data-choice]');
+const replayBtn = document.querySelector('#replay-btn');
 
 const userScoreEl = document.querySelector('#user-score');
 const computerScoreEl = document.querySelector('#computer-score');
 const battleLog = document.querySelector('#round-result');
+const endResultText = document.querySelector('.end-result h1');
 
 // --- INITIALIZER --- //
 let userScore = 0;
@@ -113,6 +115,9 @@ const updateUI = () => {
 
 const checkWinner = () => {
   if (computerScore > 2 || userScore > 2) {
+    const winnerText = userScore > computerScore ? 'YOU WIN!' : 'YOU LOSE!';
+    endResultText.textContent = winnerText;
+    
     mainScreen.classList.add('hide');
     endScreen.classList.remove('hide')
   };
